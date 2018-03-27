@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-kill `pgrep -f 'nodejs webhook.js'`
+kill `pgrep -f 'nodejs webhook.js'` 2>&1 1>/dev/null 
 nodejs webhook.js
