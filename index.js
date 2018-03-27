@@ -13,7 +13,8 @@ app.post('/', (req,res) => {
 			return;
 		}
 
-		console.log(`head commit to ${req.body.head_commit}`);
+		console.log(`head ${req.body.head_commit.id}`);
+		console.log(`after ${req.body.after}`);
 		if (req.body.after !== req.body.before) {
 			console.log(`new commit to ${req.body.repository.name}`);
 			exec(`./reloadProject.sh ${req.body.repository.name}`, (err,stdout,stderr) => {
