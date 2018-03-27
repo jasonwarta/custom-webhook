@@ -12,15 +12,10 @@ app.post('/', (req,res) => {
 
 	exec(`cd "${projectDir}" && git log --pretty=format:'%H' -n 1`, (err, stdout, stderr) => {
 		if (err) {
-			console.log(projectDir)
-			console.log("error");
 			console.log(err);
 			return;
 		}
 
-		// console.log(`current ${stdout}`)
-		// console.log(`head ${req.body.head_commit.id}`);
-		// console.log(`after ${req.body.after}`);
 		if (req.body.after !== req.body.before) {
 			exec(`cd "${projectDir}" && ./reload.sh`, (err,stdout,stderr) => {
 				console.log(stdout);
