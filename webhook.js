@@ -8,17 +8,19 @@ app.use( express.json() );
 const PROJECTS_ROOT = `~/projects/`
 
 app.post('/', (req,res) => {
-	exec("git log --pretty=format:'%H' -n 1", (err, stdout, stderr) => {
+	const projectDir = `${PROJECTS_ROOT}/${req.body.repository.name}`;
+
+	exec(`cd "${projectDir}" && git log --pretty=format:'%H' -n 1`, (err, stdout, stderr) => {
 		if (err) {
 			console.log("error");
 			return;
 		}
-		
-		console.log(`current ${stdout}`)
-		console.log(`head ${req.body.head_commit.id}`);
-		console.log(`after ${req.body.after}`);
+
+		// console.log(`current ${stdout}`)
+		// console.log(`head ${req.body.head_commit.id}`);
+		// console.log(`after ${req.body.after}`);
 		if (req.body.after !== req.body.before) {
-			exec(`cd ${PROJECTS_ROOT}/${req.body.repository.name} && ./reloadProject.sh`, (err,stdout,stderr) => {
+			exec(`cd "${projectDir}" && ./reloadProject.sh`, (err,stdout,stderr) => {
 				console.log(stdout);
 			});
 		}
