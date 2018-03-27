@@ -5,6 +5,8 @@ const { exec } = require('child_process');
 let app = express();
 app.use( express.json() );
 
+const PROJECTS_ROOT = `~/projects/`
+
 app.post('/', (req,res) => {
 	console.log('push event was triggered');
 	exec("git log --pretty=format:'%H' -n 1", (err, stdout, stderr) => {
@@ -18,7 +20,7 @@ app.post('/', (req,res) => {
 		console.log(`after ${req.body.after}`);
 		if (req.body.after !== req.body.before) {
 			console.log(`new commit to ${req.body.repository.name}`);
-			exec(`./reloadProject.sh ${req.body.repository.name}`, (err,stdout,stderr) => {
+			exec(`ls ${PROJECTS_ROOT}`, (err,stdout,stderr) => {
 				console.log(err,stdout,stderr);
 			});
 		}
