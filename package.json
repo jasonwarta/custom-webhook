@@ -1,7 +1,7 @@
 {
   "name": "git-hook",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "webhook.js",
   "license": "MIT",
   "dependencies": {
     "express": "^4.16.3"

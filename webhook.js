@@ -20,8 +20,8 @@ app.post('/', (req,res) => {
 		console.log(`after ${req.body.after}`);
 		if (req.body.after !== req.body.before) {
 			console.log(`new commit to ${req.body.repository.name}`);
-			exec(`ls ${PROJECTS_ROOT}`, (err,stdout,stderr) => {
-				console.log(err,stdout,stderr);
+			exec(`cd ${PROJECTS_ROOT}/${req.body.repository.name} && ./restart.sh`, (err,stdout,stderr) => {
+				console.log(stdout);
 			});
 		}
 	});
