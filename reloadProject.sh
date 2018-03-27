@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-PROJECT=$1
-
-echo $PROJECT
+git reset --hard && git pull
 
 exit 0

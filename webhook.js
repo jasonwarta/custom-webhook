@@ -20,11 +20,11 @@ app.post('/', (req,res) => {
 		console.log(`after ${req.body.after}`);
 		if (req.body.after !== req.body.before) {
 			console.log(`new commit to ${req.body.repository.name}`);
-			spawn(`cd ${PROJECTS_ROOT}/${req.body.repository.name} && ./restart.sh`,
-				{detatched: true, stdio: ['ignore', 'ignore', 'ignore']}).unref();
-			// exec(`cd ${PROJECTS_ROOT}/${req.body.repository.name} && ./restart.sh`, (err,stdout,stderr) => {
-			// 	console.log(stdout);
-			// });
+			// spawn(`cd ${PROJECTS_ROOT}/${req.body.repository.name} && ./refresh.sh`,
+				// {detatched: true, stdio: ['ignore', 'ignore', 'ignore']}).unref();
+			exec(`cd ${PROJECTS_ROOT}/${req.body.repository.name} && ./reloadProject.sh`, (err,stdout,stderr) => {
+				console.log(stdout);
+			});
 		}
 	});
 });
