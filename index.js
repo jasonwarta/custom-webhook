@@ -14,6 +14,7 @@ app.post('/', (req,res) => {
 		}
 		console.log(stdout);
 	});
+	console.log(req.body.before);
 	console.log(req.body.after);
 });
 
