@@ -24,8 +24,6 @@ app.post('/', (req,res) => {
 		}
 		// console.log(stdout);
 	});
-	// console.log(req.body.before);
-	// console.log(req.body.after);
 });
 
 app.listen(8888, () => console.log('listening on port 8888'));
