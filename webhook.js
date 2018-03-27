@@ -6,6 +6,7 @@ let app = express();
 app.use( express.json() );
 
 const PROJECTS_ROOT = `${process.env.HOME}/projects`
+const PORT = 8888;
 
 app.post('/', (req,res) => {
 	const projectDir = `${PROJECTS_ROOT}/${req.body.repository.name}`;
@@ -25,4 +26,4 @@ app.post('/', (req,res) => {
 	res.end('yes');
 });
 
-app.listen(8888, () => console.log('listening on port 8888'));
+app.listen(PORT, () => console.log(`listening on port ${PORT}`));
