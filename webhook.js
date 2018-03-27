@@ -20,7 +20,7 @@ app.post('/', (req,res) => {
 		// console.log(`head ${req.body.head_commit.id}`);
 		// console.log(`after ${req.body.after}`);
 		if (req.body.after !== req.body.before) {
-			exec(`cd "${projectDir}" && ./reloadProject.sh`, (err,stdout,stderr) => {
+			exec(`cd "${projectDir}" && ./reload.sh`, (err,stdout,stderr) => {
 				console.log(stdout);
 			});
 		}
