@@ -24,7 +24,6 @@ app.post('/', (req,res) => {
 				console.log(err,stdout,stderr);
 			});
 		}
-		// console.log(stdout);
 	});
 });
 
