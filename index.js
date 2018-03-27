@@ -12,7 +12,8 @@ app.post('/', (req,res) => {
 			console.log("error");
 			return;
 		}
-
+		
+		console.log(`current ${stdout}`)
 		console.log(`head ${req.body.head_commit.id}`);
 		console.log(`after ${req.body.after}`);
 		if (req.body.after !== req.body.before) {
