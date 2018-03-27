@@ -1,7 +1,7 @@
 'use strict';
 
 let express = require('express');
-const { exec } = require('child_process');
+import { exec } from 'child_process';
 let app = express();
 app.use( express.json() );
 
