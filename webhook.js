@@ -5,7 +5,7 @@ const { exec, spawn } = require('child_process');
 let app = express();
 app.use( express.json() );
 
-const PROJECTS_ROOT = `~/projects/`
+const PROJECTS_ROOT = `~/projects`
 
 app.post('/', (req,res) => {
 	const projectDir = `${PROJECTS_ROOT}/${req.body.repository.name}`;
