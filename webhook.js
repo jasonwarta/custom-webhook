@@ -13,6 +13,7 @@ app.post('/', (req,res) => {
 	exec(`cd "${projectDir}" && git log --pretty=format:'%H' -n 1`, (err, stdout, stderr) => {
 		if (err) {
 			console.log("error");
+			console.log(err);
 			return;
 		}
 
