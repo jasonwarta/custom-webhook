@@ -12,10 +12,15 @@ app.post('/', (req,res) => {
 			console.log("error");
 			return;
 		}
-		console.log(stdout);
+
+		if (req.body.after !== req.body.before) {
+			console.log(`new commit to ${req.body.repository.name}`);
+			exec(`./reloadProject.sh ${req.body.repository.name}`);
+		}
+		// console.log(stdout);
 	});
-	console.log(req.body.before);
-	console.log(req.body.after);
+	// console.log(req.body.before);
+	// console.log(req.body.after);
 });
 
 app.listen(8888, () => console.log('listening on port 8888'));
