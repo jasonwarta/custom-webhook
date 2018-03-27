@@ -15,7 +15,9 @@ app.post('/', (req,res) => {
 
 		if (req.body.after !== req.body.before) {
 			console.log(`new commit to ${req.body.repository.name}`);
-			exec(`./reloadProject.sh ${req.body.repository.name}`);
+			exec(`./reloadProject.sh ${req.body.repository.name}`, (err,stdout,stderr) => {
+				console.log(err,stdout,stderr);
+			});
 		}
 		// console.log(stdout);
 	});
