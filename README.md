@@ -1,6 +1,6 @@
 # custom-webhook
 
-This webhook is designed to be run on a server, and refreshes/reloads a git repo on push events.
+This service is designed to be run on a server, and provides an endpoint for git webhooks to call on push events, to trigger service refresh and restart.
 
 ### Setup and Configuration
 Clone this repo to some location on your computer. I have a folder `$HOME/projects` that most of my repos live in. Open `webhook.js` in your favorite editor and change the consts `PROJECTS_ROOT` and `PORT` to reflect your desired configuration.  
